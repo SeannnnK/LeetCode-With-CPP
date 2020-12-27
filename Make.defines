@@ -3,5 +3,3 @@ CPPFLAGS =
 CFLAGS = -g -Wall --std=c++11
 LDFLAGS =
 CLEANFILES = 
-
-
