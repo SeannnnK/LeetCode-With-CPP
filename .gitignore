@@ -1,5 +1,9 @@
 # Executables
 *.out
+*.app
 
 # VScode
 .vscode/**
+
+#debug sysbol
+*.dSYM
