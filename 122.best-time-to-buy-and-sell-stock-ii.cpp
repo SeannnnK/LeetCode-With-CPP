@@ -13,14 +13,9 @@ using namespace std;
 class Solution {
 public:
     int maxProfit(vector<int>& prices) {
-        if (prices.empty()) {
-            return 0;
-        }
         int res = 0;
-        for (int i = 0; i < prices.size() - 1; ++i) {
-            if (prices[i] < prices[i + 1]) {
-                res += prices[i + 1] - prices[i];
-            }
+        for (int i = 1; i < prices.size(); ++i) {
+            res += max(0, prices[i] - prices[i - 1]);
         }
         return res;
     }
