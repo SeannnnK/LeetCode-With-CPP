@@ -28,7 +28,7 @@ public:
         if (!root) {
             return true;
         }
-        int last = 0xffffffff;
+        TreeNode *last = nullptr;
         stack<TreeNode*> s;
         
         while (!s.empty() || root) {
@@ -38,10 +38,10 @@ public:
             }
             root = s.top();
             s.pop();
-            if (root->val < last) {
+            if (last != nullptr && root->val <= last->val) {
                 return false;
             }
-            last = root->val;
+            last = root;
             root = root->right;
         }
         return true;
