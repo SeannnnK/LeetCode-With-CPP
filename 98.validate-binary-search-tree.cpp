@@ -72,6 +72,26 @@ public:
         }
         return res;
     }
+public:
+    bool isValidBST2(TreeNode* root) {
+        // recursive
+        if (!root) {
+            return true;
+        }
+        if (!isValidBST2(root->left)) {
+            return false;
+        }
+        if (!last && last != root && last->val >= root->val) {
+            return false;
+        }
+        last = root;
+        if (!isValidBST2(root->right)) {
+            return false;
+        }
+        return true;
+    }
+private:
+    TreeNode *last = nullptr;
 };
 
 int main()
