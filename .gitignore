@@ -7,3 +7,6 @@
 
 #debug sysbol
 *.dSYM
+
+#practice test.cpp
+test.cpp
