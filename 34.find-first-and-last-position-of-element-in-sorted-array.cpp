@@ -5,6 +5,7 @@
  */
 
 // @lc code=start
+// linkedin
 #include <vector>
 #include <iostream>
 

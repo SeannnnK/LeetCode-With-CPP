@@ -1,10 +1,11 @@
 /*
- * @lc app=leetcode id=154 lang=cpp
+ * @lc app=leetcode id=153 lang=cpp
  *
- * [154] Find Minimum in Rotated Sorted Array II
+ * [153] Find Minimum in Rotated Sorted Array
  */
 
 // @lc code=start
+// microsoft
 #include <vector>
 #include <iostream>
 
@@ -13,23 +14,12 @@ using namespace std;
 class Solution {
 public:
     int findMin(vector<int>& nums) {
-        if (nums.empty()) {
-            return -1;
-        }
-
         int l = 0, r = nums.size() - 1;
         int mid = 0;
-
         while (l + 1 < r) {
-            while (l < r && nums[l] == nums[l + 1]) {
-                ++l;
-            }
-            while (l < r && nums[r] == nums[r - 1]) {
-                --r;
-            }
-
             mid = l + (r - l) / 2;
             if (nums[mid] <= nums[r]) {
+                // rotate is not more half
                 r = mid;
             } else {
                 l = mid;
@@ -44,8 +34,8 @@ public:
 
 int main()
 {
+    vector<int> nums{3, 4, 5, 1, 2};
     Solution sol;
-    vector<int> nums{1, 3, 5};
     cout << sol.findMin(nums) << endl;
     return 0;
 }

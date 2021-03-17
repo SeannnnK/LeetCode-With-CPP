@@ -19,6 +19,7 @@ public:
 
         int l = 0, r = nums.size() - 1;
         int mid = 0;
+
         while (l + 1 < r) {
             while (l < r && nums[l] == nums[l + 1]) {
                 ++l;
@@ -26,17 +27,21 @@ public:
             while (l < r && nums[r] == nums[r - 1]) {
                 --r;
             }
+
             mid = l + (r - l) / 2;
+
             if (nums[mid] == target) {
                 return true;
             }
             if (nums[mid] > nums[l]) {
+                // rotate is more than half
                 if (nums[l] <= target && target <= nums[mid]) {
                     r = mid;
                 } else {
                     l = mid;
                 }
             } else if (nums[r] > nums[mid]) {
+                // rotate is not more than half
                 if (nums[r] >= target && target >= nums[mid]) {
                     l = mid;
                 } else {
