@@ -19,10 +19,10 @@ public:
             return string(a, 'a');
         } else if (a == b) {
             return "ab" + strWithout3a3b(a - 1, b - 1);
-        } else if (a < b) {
-            return "abb" + strWithout3a3b(a - 1, b - 2);
-        } else {
+        } else if (a > b) {
             return "aab" + strWithout3a3b(a - 2, b - 1);
+        } else {
+            return strWithout3a3b(a - 1, b - 2) + "abb";
         }
     }
 };
