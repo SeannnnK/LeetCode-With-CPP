@@ -1,16 +1,20 @@
 /*
  * string s and t to check wheatehr they are isomorphic
+ * [205]
  */
-#include <unordered_map>
-#include <string>
+// linkedin
 #include <sstream>
+#include <string>
+#include <unordered_map>
 #include <vector>
+#include <iostream>
 
 using namespace std;
 
-class IsTwoStringIsomorphic {
+class isTwoStringIsomorphic {
 public:
-    bool isIsoMorphic(string s, string t) {
+    bool isIsoMorphic(string s, string t)
+    {
         /*
          * attention! you need two hash map to check wheterh they are
          * isomorphic. bar->foo will be an example if you just use one
@@ -42,7 +46,8 @@ public:
 
 class Solution {
 public:
-    bool wordPattern(string pattern, string s) {
+    bool wordPattern(string pattern, string s)
+    {
         vector<int> p2s(26, 0);
         unordered_map<string, int> s2p;
 
@@ -60,5 +65,8 @@ public:
 
 int main()
 {
+    string s1 = "egg", s2 = "add";
+    isTwoStringIsomorphic iTSI;
+    cout << iTSI.isIsoMorphic(s1, s2) << endl;
     return 0;
 }
