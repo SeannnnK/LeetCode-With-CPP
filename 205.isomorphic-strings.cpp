@@ -3,11 +3,11 @@
  * [205]
  */
 // linkedin
+#include <iostream>
 #include <sstream>
 #include <string>
 #include <unordered_map>
 #include <vector>
-#include <iostream>
 
 using namespace std;
 
@@ -16,7 +16,7 @@ public:
     bool isIsoMorphic(string s, string t)
     {
         /*
-         * attention! you need two hash map to check wheterh they are
+         * attention! you need two hash map to check whether they are
          * isomorphic. bar->foo will be an example if you just use one
          * hash map. Another is you can use vector<int, int> to substitute
          * hash map.
