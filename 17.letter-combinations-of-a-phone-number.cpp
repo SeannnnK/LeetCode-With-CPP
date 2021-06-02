@@ -5,17 +5,18 @@
  */
 
 // @lc code=start
-//amazon | dropbox | facebook | google | uber
+// amazon | dropbox | facebook | google | uber
 
-#include <vector>
-#include <string>
 #include <iostream>
+#include <string>
+#include <vector>
 
 using namespace std;
 
 class Solution {
 public:
-    vector<string> letterCombinations(string digits) {
+    vector<string> letterCombinations(string digits)
+    {
         vector<string> res;
         if (digits.empty()) {
             return res;
@@ -25,8 +26,10 @@ public:
         dfs(digits, 0, path, res, letter);
         return res;
     }
+
 private:
-    void dfs(string digits, int pos, string& path, vector<string>& res, vector<string>& letter) {
+    void dfs(string digits, int pos, string& path, vector<string>& res, vector<string>& letter)
+    {
         if (pos == digits.size()) {
             res.push_back(path);
             return;
@@ -45,7 +48,7 @@ int main()
     Solution sol;
     vector<string> res = sol.letterCombinations(digits);
     for (const auto& str : res) {
-        cout << str << endl; 
+        cout << str << endl;
     }
     return 0;
 }
