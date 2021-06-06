@@ -6,15 +6,16 @@
 
 // @lc code=start
 // airbnb | amazon | bloomberg | facebook | google | microsoft | twitter | zenefits
-#include <string>
 #include <iostream>
 #include <stack>
+#include <string>
 
 using namespace std;
 
 class Solution {
 public:
-    bool isValid(string s) {
+    bool isValid(string s)
+    {
         stack<char> sta;
         for (int i = 0; i < s.size(); ++i) {
             if (s[i] == '(' || s[i] == '[' || s[i] == '{') {
@@ -24,8 +25,9 @@ public:
                     return false;
                 }
                 char c = sta.top();
-                if ((s[i] == '}' && c == '{') || (s[i] == ']' && c== '[') || (s[i] == ')' && c == '(')) {
-                        sta.pop();
+                if ((s[i] == '}' && c == '{') || (s[i] == ']' && c == '[') ||
+                    (s[i] == ')' && c == '(')) {
+                    sta.pop();
                 } else {
                     return false;
                 }
@@ -43,4 +45,3 @@ int main()
     return 0;
 }
 // @lc code=end
-
