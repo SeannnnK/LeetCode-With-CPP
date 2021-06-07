@@ -7,6 +7,10 @@
 // @lc code=start
 // amazon | apple | linkedin | microsoft
 
+#include <iostream>
+
+using namespace std;
+
 struct ListNode
 {
     int val;
@@ -52,18 +56,19 @@ int main()
     ListNode node1(1);
     ListNode node2(2);
     ListNode node3(4);
-    node1.next = node2, node2.next = node3, node3.next = nullptr;
+    node1.next = &node2, node2.next = &node3, node3.next = nullptr;
 
     ListNode node4(1);
     ListNode node5(3);
     ListNode node6(4);
-    node4.next = node5, node5.next = node6, node6.next = nullptr;
+    node4.next = &node5, node5.next = &node6, node6.next = nullptr;
 
     Solution sol;
     ListNode* res = sol.mergeTwoLists(&node1, &node4);
 
     while (res) {
         cout << res->val << " ";
+        res = res->next;
     }
     cout << endl;
 
