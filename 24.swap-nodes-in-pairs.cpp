@@ -5,45 +5,55 @@
  */
 
 // @lc code=start
-// Definition for singly-linked list.
+// bloomberg | microsoft | uber
+
 #include <iostream>
 
 using namespace std;
 
-struct ListNode {
+struct ListNode
+{
     int val;
-    ListNode *next;
-    ListNode() : val(0), next(nullptr) {}
-    ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, ListNode *next) : val(x), next(next) {}
+    ListNode* next;
+    ListNode() : val(0), next(nullptr)
+    {
+    }
+    ListNode(int x) : val(x), next(nullptr)
+    {
+    }
+    ListNode(int x, ListNode* next) : val(x), next(next)
+    {
+    }
 };
 
 class Solution {
 public:
-    ListNode* swapPairs(ListNode* head) {
-       ListNode dummy(0);
-       dummy.next = head;
-       ListNode *curr = &dummy;
-       while (curr->next && curr->next->next) {
-           ListNode *nextOne = curr->next;
-           ListNode *nextTwo = nextOne->next;
-           ListNode *nextThree = nextTwo->next;
-           curr->next = nextTwo;
-           nextTwo->next = nextOne;
-           nextOne->next = nextThree;
-           curr = nextOne;
-       }
-       return dummy.next;
+    ListNode* swapPairs(ListNode* head)
+    {
+        ListNode dummy(0);
+        dummy.next = head;
+        ListNode* curr = &dummy;
+        while (curr->next && curr->next->next) {
+            ListNode* nextOne = curr->next;
+            ListNode* nextTwo = nextOne->next;
+            ListNode* nextThree = nextTwo->next;
+            curr->next = nextTwo;
+            nextTwo->next = nextOne;
+            nextOne->next = nextThree;
+            curr = nextOne;
+        }
+        return dummy.next;
     }
 
 public:
     // NOTE: this is the recursive version.
-    ListNode* helper(ListNode *head) {
+    ListNode* helper(ListNode* head)
+    {
         if (!head || !head->next) {
             return head;
         }
-        ListNode *nextTwo = head->next;
-        ListNode *nextThree = nextTwo->next;
+        ListNode* nextTwo = head->next;
+        ListNode* nextThree = nextTwo->next;
         nextTwo->next = head;
         head->next = helper(nextThree);
         return nextTwo;
@@ -57,8 +67,8 @@ int main()
     node1.next = &node2;
     node2.next = &node3;
     node3.next = &node4;
-    ListNode *head = &node1;
-    ListNode *res = sol.swapPairs(head);
+    ListNode* head = &node1;
+    ListNode* res = sol.swapPairs(head);
     res = sol.helper(res);
     while (res) {
         cout << res->val << " ";
@@ -68,4 +78,3 @@ int main()
     return 0;
 }
 // @lc code=end
-
