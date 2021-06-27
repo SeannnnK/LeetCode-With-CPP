@@ -5,14 +5,15 @@
  */
 
 // @lc code=start
-#include <vector>
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
 class Solution {
 public:
-    int searchInsert(vector<int>& nums, int target) {
+    int searchInsert(vector<int>& nums, int target)
+    {
         int l = 0, r = nums.size() - 1;
         int mid = 0;
         while (l <= r) {
